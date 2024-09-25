@@ -4,14 +4,24 @@ const Post = require("./../model/post.model");
  * Methode pour récupérer les 20 derniers post (les plus récents)
  */
 exports.getAll = async () => {
-
+    try{
+        //TODO
+        res.status(200).json(listPost);
+    }catch(e){
+        res.status(500).json(e.message);
+    }
 }
 
 /**
  * Methode pour récupérer un post par son id, et les commentaires associés à ce post
  */
 exports.getById = async () => {
-
+    try{
+        //TODO
+        res.status(200).json(postWithComment);
+    }catch(e){
+        res.status(500).json(e.message);
+    }
 }
 
 /**
@@ -23,7 +33,12 @@ exports.getById = async () => {
  * }
  */
 exports.create = async () => {
-
+    try{
+        //TODO
+        res.status(201).json(post);
+    }catch(e){
+        res.status(500).json(e.message);
+    }
 }
 
 /**
@@ -35,7 +50,12 @@ exports.create = async () => {
  * }
  */
 exports.update = async () => {
-
+    try{
+        //TODO
+        res.status(201).json({message: "Post mis à jour"});
+    }catch(e){
+        res.status(500).json(e.message);
+    }
 }
 
 /**
@@ -43,5 +63,10 @@ exports.update = async () => {
  * @param id l'id du post à supprimer
  */
 exports.delete = async () => {
-
+    try{
+        //TODO
+        res.status(200).json({message: "Post supprimé"});
+    }catch(e){
+        res.status(500).json(e.message);
+    }
 }

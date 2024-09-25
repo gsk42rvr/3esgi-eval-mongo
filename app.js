@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 const userRoute = require("./route/user.route");
 const postRoute = require("./route/post.route");
 const commentRoute = require("./route/comment.route");
@@ -14,8 +13,6 @@ app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     next();
 });
-
-app.use('/images', express.static(path.join(__dirname, "images")));
 
 app.use('/user', userRoute);
 app.use('/post', postRoute);

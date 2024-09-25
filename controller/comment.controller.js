@@ -10,7 +10,12 @@ const Comment = require("./../model/comment.model");
  * }
  */
 exports.create = async () => {
-
+    try{
+        //TODO
+        res.status(201).json(comment);
+    }catch(e){
+        res.status(500).json(e.message);
+    }
 }
 
 /**
@@ -22,7 +27,12 @@ exports.create = async () => {
  * }
  */
 exports.update = async () => {
-
+    try{
+        //TODO
+        res.status(200).json({message: "Commentaire mis à jour"});
+    }catch(e){
+        res.status(500).json(e.message);
+    }
 }
 
 /**
@@ -30,5 +40,10 @@ exports.update = async () => {
  * @param id l'id du commentaire à supprimer
  */
 exports.delete = async () => {
-
+    try{
+        //TODO
+        res.status(200).json({message: "Commentaire supprimé"});
+    }catch(e){
+        res.status(500).json(e.message);
+    }
 }

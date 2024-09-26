@@ -11,7 +11,7 @@ const User = require("./../model/user.model");
 exports.login = async (req,res) => {
     try{
         //TODO
-        res.status(200).json(listUser);
+        res.status(200).json(user);
     }catch(e){
         res.status(500).json(e.message);
     }
@@ -29,7 +29,7 @@ exports.login = async (req,res) => {
 exports.signin= async (req,res) => {
     try{
         //TODO
-        res.status(200).json(listUser);
+        res.status(200).json(user);
     }catch(e){
         res.status(500).json(e.message);
     }

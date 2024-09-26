@@ -47,7 +47,7 @@ exports.delete = async (req, res) => {
     try{
         let id = req.params.id;
         let result = await Comment.findByIdAndDelete(id);
-        if (!result){
+        if (result){
             res.status(200).json({message: "Commentaire supprimé"});
         }
     }catch(e){

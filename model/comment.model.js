@@ -21,12 +21,12 @@ const commentSchema = new mongoose.Schema({
     required: true,
   },
   userId: {
-    type: Schema.Types.UserId,
+    type: Schema.Types.ObjectId,
     ref: 'User',
     required: true,
   },
   postId: {
-    type: Schema.Types.PostId,
+    type: Schema.Types.ObjectId,
     ref: 'Post',
     required: true,
   },

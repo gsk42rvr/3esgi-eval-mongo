@@ -2,6 +2,7 @@ const express = require("express");
 const userRoute = require("./route/user.route");
 const postRoute = require("./route/post.route");
 const commentRoute = require("./route/comment.route");
+const {connect} = require('./model/connexion')
 
 const app = express();
 
@@ -13,6 +14,12 @@ app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     next();
 });
+
+async function launch() {
+    await connect()
+}
+
+launch()
 
 app.use('/user', userRoute);
 app.use('/post', postRoute);

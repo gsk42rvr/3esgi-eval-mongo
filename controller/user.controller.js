@@ -1,7 +1,7 @@
 const { Query } = require("mongoose");
 const User = require("./../model/user.model");
 const bcrypt = require("bcrypt");
-const user = await users.findOne( {"userData.username": username} );
+const login = users.findOne( {"userData.username": username} );
 /**
  * Methode pour la connexion utilisateur
  * @body
@@ -13,7 +13,7 @@ const user = await users.findOne( {"userData.username": username} );
 exports.login = async (req,res) => {
     try{
         //TODO
-        let result = await users.findOne(req.params.id)
+        let result = Users.findOne({_id:req.params.id})
         if(result == null) {
             res.status(404).send("user not found")
         }
@@ -46,8 +46,8 @@ exports.signin= async (req,res) => {
             ...req.body,
             password: bcrypt.hashSync(req.body.password,10)
         }
-        let user = await User.create(newUser);
-        res.status(200).json(User);
+        let user = new User(newUser);
+        res.status(200).json(user);
     }catch(e){
         res.status(500).json(e.message);
     }

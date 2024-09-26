@@ -1,5 +1,7 @@
+const { Query } = require("mongoose");
 const User = require("./../model/user.model");
-
+const bcrypt = require("bcrypt");
+const user = await users.findOne( {"userData.username": username} );
 /**
  * Methode pour la connexion utilisateur
  * @body
@@ -11,12 +13,12 @@ const User = require("./../model/user.model");
 exports.login = async (req,res) => {
     try{
         //TODO
-        let result = await Email.findById(req.params.id)
+        let result = await users.findOne(req.params.id)
         if(result == null) {
             res.status(404).send("user not found")
         }
         else {
-            let result = await password.findById(req.params.id)
+            let result = await this.login.findById(req.params.id)
             if(result == null) {
                 res.status(404).send("wrong password")
             }

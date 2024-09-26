@@ -1,7 +1,11 @@
 const Post = require("./../model/post.model");
 
 /**
- * Methode pour récupérer les 20 derniers post (les plus récents)
+ * Methode pour récupérer 10 post (les plus récents) par page
+ * @param page le numéro de la page actuelle
+ * Si la page est 1 il faut récupérer les 10 post les plus récents
+ * Si la page est 2 il faut récupérer les post du 11ème au 20ème les plus récents
+ * ...
  */
 exports.getAll = async () => {
     try{

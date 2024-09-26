@@ -7,9 +7,10 @@ const Post = require("./../model/post.model");
  * Si la page est 2 il faut récupérer les post du 11ème au 20ème les plus récents
  * ...
  */
-exports.getAll = async () => {
+exports.getAll = async (req, res) => {
     try{
-        //TODO
+        const  page  = req.params.page
+        const listPost = await Post.find().sort({createdAt: -1}).skip((page - 1) * 10).limit(10)
         res.status(200).json(listPost);
     }catch(e){
         res.status(500).json(e.message);
@@ -36,9 +37,10 @@ exports.getById = async () => {
  *     userId: <string>
  * }
  */
-exports.create = async () => {
+exports.create = async (req, res) => {
     try{
-        //TODO
+        const {message, userId } = req.body
+        const post = new Post({message, userId})
         res.status(201).json(post);
     }catch(e){
         res.status(500).json(e.message);
@@ -55,7 +57,11 @@ exports.create = async () => {
  */
 exports.update = async () => {
     try{
-        //TODO
+        const updatePost = Post.updateOne({
+            _id : req.body.id
+        }, {
+            message : req.body.message
+        })
         res.status(201).json({message: "Post mis à jour"});
     }catch(e){
         res.status(500).json(e.message);
